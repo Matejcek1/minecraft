@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ranki | RoyalMC</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://wallpapercave.com/wp/wp6005494.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: orange;
+    }
+
+    .logo span {
+      color: red;
+    }
+
+    .content {
+      display: flex;
+      padding: 40px;
+    }
+
+    .sidebar {
+      width: 250px;
+      margin-right: 30px;
+    }
+
+    .nav-box {
+            background: linear-gradient(to bottom right, orange, #ff6500);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+    .donation-box,
+    .rank-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .nav-box a {
+      color: #222;
+      text-decoration: none;
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .donation-box img {
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    .main {
+      flex: 1;
+    }
+
+    .main h2 {
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 5px black;
+    }
+
+    .rank-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .rank-card {
+      text-align: center;
+    }
+
+    .rank-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .rank-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .rank-card p {
+      color: #ff6500;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #ff6500;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .progress-bar {
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 20px;
+    }
+
+    .progress-bar-inner {
+      height: 100%;
+      background: orange;
+      width: 25%;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ROYAL<span>MC</span></div>
+  <div>
+    <a href="#" style="color:white; margin-right: 15px;">Discord</a>
+    <a href="#" style="background: orange; padding: 10px 20px; border-radius: 6px; color:black; text-decoration: none;">Prijava</a>
+  </div>
+</header>
+
+<div class="content">
+  <div class="sidebar">
+    <div class="nav-box">
+      <h3>NAVIGACIJA</h3>
+      <a href="index.html">DOMOV</a>
+      <a href="ranki.html">RANKI</a>
+      <a href="darilne.html">DARILNE KARTICE</a>
+      <a href="#">MERCH</a>
+    </div>
+
+    <div class="donation-box">
+      <strong>TOP DONATOR</strong><br><br>
+      <img src="https://mc-heads.net/avatar/Vihara/30" alt="Vihara"> Vihara<br>
+      <span style="color:red;">Doniral največ letos.</span>
+    </div>
+
+    <div class="donation-box">
+      <strong>NEDAVNE DONACIJE</strong><br><br>
+      <img src="https://mc-heads.net/avatar/Wynn__/30"> Wynn__ - Rank Assassin<br>
+      <img src="https://mc-heads.net/avatar/nikec1/30"> nikec1 - Rank Knight<br>
+      <img src="https://mc-heads.net/avatar/JAKEC81/30"> JAKEC81 - Rank Assassin<br>
+      <img src="https://mc-heads.net/avatar/ge/30"> ge - Rank Knight<br>
+      <img src="https://mc-heads.net/avatar/gajbisajt/30"> gajbisajt - Rank Knight
+    </div>
+
+    <div class="donation-box">
+      <strong>MESEČNI CILJ DONACIJ</strong><br><br>
+      Hvala za vašo podporo!<br><br>
+      <div class="progress-bar">
+        <div class="progress-bar-inner" style="width: 25%;">10 / 40 EUR</div>
+      </div>
+    </div>
+
+    <div class="donation-box" style="background: linear-gradient(to right, orange, #ff6500); color: white;">
+      <strong>PREVERI STANJE SVOJE DARILNE KARTICE</strong><br><br>
+      <input type="text" placeholder="Koda..." style="width: 100%; padding: 8px; margin-top: 10px; border: none; border-radius: 4px;">
+      <button style="margin-top: 10px; width: 100%; padding: 8px; background: white; color: black; font-weight: bold; border: none; border-radius: 4px;">PREVERI</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <h2>Ranki</h2>
+    <p style="color: white; text-shadow: 0 0 4px black;">
+      Z rankom boste v igri in na Discordu dobili razne izjemne dodatke in dodatne ukaze.
+    </p>
+
+    <div class="rank-grid">
+      <div class="rank-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2506/2506730.png" alt="Assassin">
+        <h3>Rank Assassin</h3>
+        <p>10.00 EUR</p>
+        <a class="btn" href="#">🛒 Dodaj v košarico</a>
+      </div>
+
+      <div class="rank-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2506/2506732.png" alt="Knight">
+        <h3>Rank Knight</h3>
+        <p>25.00 EUR</p>
+        <a class="btn" href="#">🛒 Dodaj v košarico</a>
+      </div>
+
+      <div class="rank-card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2506/2506716.png" alt="Duke">
+        <h3>Rank Duke</h3>
+        <p>50.00 EUR</p>
+        <a class="btn" href="#">🛒 Dodaj v košarico</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © Copyright 2025 RoyalMC | Vse pravice pridržane.
+</footer>
+
+</body>
+</html>

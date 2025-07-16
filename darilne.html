@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darilne kartice | RoyalMC</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://tse1.mm.bing.net/th/id/OIP.vllu0Q-il0EYHtznAxoYKAHaEK') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: orange;
+        }
+
+        .logo span {
+            color: red;
+        }
+
+        .nav {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 250px;
+            background: linear-gradient(to bottom right, orange, #ff6500);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            z-index: 10;
+        }
+
+        .nav h3 {
+            margin-top: 0;
+        }
+
+        .nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .donator-box {
+            margin-top: 20px;
+            background: white;
+            color: black;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .main {
+            margin-left: 280px;
+            padding: 40px 20px;
+        }
+
+        .main h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .main p {
+            font-size: 16px;
+            color: #f0f0f0;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px;
+            width: 240px;
+            box-shadow: 0 8px 32px 0 rgba(0,0,0,0.2);
+            color: #000;
+            text-align: center;
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .card-price {
+            color: orange;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn {
+            background-color: orange;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        a.btn:hover {
+            background-color: #ff8500;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ROYAL<span>MC</span></div>
+        <div>
+            <a href="#" style="color:white; margin-right: 15px; text-decoration: underline;">Discord</a>
+            <a href="#" style="background: orange; padding: 10px 20px; border-radius: 6px; color:black; text-decoration: none;">Prijava</a>
+        </div>
+    </header>
+
+    <div class="nav">
+        <h3>NAVIGACIJA</h3>
+        <a href="index.html">DOMOV</a>
+        <a href="ranki.html">RANKI</a>
+        <a href="darilne.html">DARILNE KARTICE</a>
+        <a href="#">MERCH</a>
+
+        <div class="donator-box">
+            <strong>TOP DONATOR</strong><br><br>
+            <img src="https://mc-heads.net/avatar/Vihara/30" alt="Vihara">
+            <span>Vihara</span><br>
+            <span style="color:red;">Doniral največ letos.</span>
+        </div>
+
+        <div class="donator-box">
+            <strong>NEDAVNE DONACIJE</strong><br><br>
+            <img src="https://mc-heads.net/avatar/Wynn__/30"> Wynn__ – Rank Assassin<br>
+            <img src="https://mc-heads.net/avatar/nikec1/30"> nikec1 – Rank Knight<br>
+            <img src="https://mc-heads.net/avatar/JAKEC81/30"> JAKEC81 – Rank Assassin<br>
+        </div>
+    </div>
+
+    <div class="main">
+        <h1>Darilne kartice</h1>
+        <p>Darilno kartico lahko podarite prijatelju. Izkoristi jo lahko za katerikoli produkt v naši spletni trgovini.</p>
+        <p><strong>Vse darilne kartice so veljavne 1 leto.</strong></p>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/6460/6460664.png" alt="Gift Card">
+                <div class="card-title">10€ Gift card</div>
+                <div class="card-price">10.00 EUR</div>
+                <button class="btn">➕ Dodaj v košarico</button>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/6460/6460664.png" alt="Gift Card">
+                <div class="card-title">20€ Gift card</div>
+                <div class="card-price">20.00 EUR</div>
+                <button class="btn">➕ Dodaj v košarico</button>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/6460/6460664.png" alt="Gift Card">
+                <div class="card-title">50€ Gift card</div>
+                <div class="card-price">50.00 EUR</div>
+                <button class="btn">➕ Dodaj v košarico</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
