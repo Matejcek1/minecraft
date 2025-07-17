@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROYALMC - Kazni</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ffa500;
+      --text: #f1f1f1;
+      --bg1: #0f0f0f;
+      --bg2: #1c1c1c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: linear-gradient(-45deg, #0f0f0f, #1c1c1c, #2a2a2a, #0f0f0f);
+      background-size: 400% 400%;
+      animation: gradientShift 30s ease infinite;
+      line-height: 1.6;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      padding: 25px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+
+    .logo {
+      font-size: 28px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .login-btn {
+      background: var(--primary);
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 80px 30px;
+    }
+
+    .main .text {
+      max-width: 500px;
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+    }
+
+    .text h1 {
+      font-size: 42px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .text p {
+      font-size: 18px;
+    }
+
+    .character img {
+      width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255,165,0,0.4);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      padding: 60px;
+      backdrop-filter: blur(4px);
+    }
+
+    .penalty {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .penalty:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 12px rgba(255,165,0,0.3);
+    }
+
+    .penalty img {
+      width: 64px;
+      margin-bottom: 15px;
+    }
+
+    .penalty span {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin: 15px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">ROYALMC</div>
+    <nav>
+      <a href="#">Domov</a>
+      <a href="#">Trgovina</a>
+      <a href="#">Skupnost</a>
+      <a href="#">Ekipa</a>
+      <a href="#">Pomoč</a>
+    </nav>
+    <button class="login-btn">Prijava</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="main">
+    <div class="text">
+      <h1>Kazni</h1>
+      <p>Noben ne mara težav, a včasih je treba poskrbeti za red. Na tej strani so prikazane vrste kazni, ki jih lahko prejmeš na našem strežniku, če se ne držiš pravil.</p>
+    </div>
+    <div class="character">
+      <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/1/1e/Steve.png" alt="Minecraft lik" />
+    </div>
+  </section>
+
+  <!-- PENALTY GRID -->
+  <section class="grid">
+    <div class="penalty">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png" alt="Suspendi">
+      <span>Suspendi</span>
+    </div>
+    <div class="penalty">
+      <img src="https://cdn-icons-png.flaticon.com/512/727/727240.png" alt="Utišanja">
+      <span>Utišanja</span>
+    </div>
+    <div class="penalty">
+      <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" alt="Odstranitve">
+      <span>Odstranitve</span>
+    </div>
+    <div class="penalty">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" alt="Opozorila">
+      <span>Opozorila</span>
+    </div>
+  </section>
+
+</body>
+</html>
