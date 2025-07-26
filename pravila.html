@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROYALMC - Pravila in prijava</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #111, #1c1c1c);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    header h1 {
+      color: #ffa500;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffa500;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,165,0, 0.2);
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #333;
+      color: #ffa500;
+      border: 1px solid #ffa500;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: #ffa500;
+      color: black;
+      transform: scale(1.05);
+    }
+
+    .rules-section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .rules-section.active {
+      display: block;
+    }
+
+    .rules-section h2 {
+      color: #ffa500;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .rules-section ul {
+      padding-left: 20px;
+    }
+
+    .rules-section li {
+      margin-bottom: 12px;
+      color: #ccc;
+    }
+
+    .rules-section li::before {
+      content: "⚠️";
+      margin-right: 8px;
+      color: #ffa500;
+    }
+
+    .checkbox-container {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checkbox-container input {
+      transform: scale(1.3);
+      cursor: pointer;
+    }
+
+    .checkbox-container label {
+      color: #ccc;
+    }
+
+    .continue-btn {
+      margin-top: 20px;
+      background: #ffa500;
+      color: black;
+      font-weight: bold;
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .continue-btn:hover {
+      background: #ff8c00;
+      transform: scale(1.02);
+    }
+
+    .continue-btn:disabled {
+      background: #555;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .login-form,
+    .register-form {
+      display: none;
+      margin-top: 30px;
+      flex-direction: column;
+      gap: 15px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .login-form.active,
+    .register-form.active {
+      display: flex;
+    }
+
+    .login-form input,
+    .register-form input {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #2a2a2a;
+      color: white;
+      font-size: 16px;
+    }
+
+    .form-switch {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #ccc;
+      cursor: pointer;
+      text-align: center;
+      user-select: none;
+    }
+
+    .form-switch:hover {
+      color: #ffa500;
+    }
+
+    .discord-link {
+      margin-top: 30px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .discord-link a {
+      color: #7289da;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ROYALMC</h1>
+    <nav>
+      <a href="#">Domov</a>
+      <a href="#">Pravila</a>
+      <a href="#">Kontakt</a>
+      <a href="#">Pritožbe in pohvale</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" data-target="bedwars">🛏 BedWars</button>
+      <button class="tab-btn" data-target="survival">⛏ Survival</button>
+      <button class="tab-btn" data-target="skywars">☁️ SkyWars</button>
+    </div>
+
+    <div id="bedwars" class="rules-section active">
+      <h2>🛏 Pravila - BedWars</h2>
+      <ul>
+        <li>Prepovedana uporaba "auto-clickerjev" in makrov.</li>
+        <li>Ni dovoljeno kampiranje na lastnem otoku dlje časa.</li>
+        <li>Cross-teaming je strogo prepovedan.</li>
+        <li>Spam in nespoštovanje v klepetu bosta kaznovana.</li>
+      </ul>
+    </div>
+
+    <div id="survival" class="rules-section">
+      <h2>⛏ Pravila - Survival</h2>
+      <ul>
+        <li>Griefanje in kraja tuje lastnine NI dovoljena.</li>
+        <li>X-ray in goljufivi modi niso dovoljeni.</li>
+        <li>Gradnje z neprimernimi vsebinami bodo odstranjene.</li>
+      </ul>
+    </div>
+
+    <div id="skywars" class="rules-section">
+      <h2>☁️ Pravila - SkyWars</h2>
+      <ul>
+        <li>Hacked klienti vodijo do takojšnjega bana.</li>
+        <li>Teamanje v solo načinu ni dovoljeno.</li>
+        <li>Bug abuse je prepovedan.</li>
+      </ul>
+    </div>
+
+    <div class="checkbox-container">
+      <input type="checkbox" id="agree" />
+      <label for="agree">Strinjam se s pravili strežnika</label>
+    </div>
+
+    <button class="continue-btn" id="continueBtn" disabled>Nadaljuj</button>
+
+    <!-- Prijavni obrazec -->
+    <form id="loginForm" class="login-form">
+      <input type="text" placeholder="Uporabniško ime" required />
+      <input type="password" placeholder="Geslo" required />
+      <button type="submit" class="continue-btn">Prijava</button>
+      <div class="form-switch" id="showRegister">Še nimaš računa? Registriraj se tukaj</div>
+    </form>
+
+    <!-- Registracijski obrazec -->
+    <form id="registerForm" class="register-form">
+      <input type="text" placeholder="Uporabniško ime" required />
+      <input type="email" placeholder="E-pošta" required />
+      <input type="password" placeholder="Geslo" required />
+      <input type="password" placeholder="Ponovi geslo" required />
+      <button type="submit" class="continue-btn">Registracija</button>
+      <div class="form-switch" id="showLogin">Že imaš račun? Prijavi se tukaj</div>
+    </form>
+
+    <div class="discord-link">
+      <i class="fab fa-discord"></i>
+      <a href="https://discord.gg/royalmc" target="_blank">Pridruži se našemu Discord strežniku</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 ROYALMC - Vse pravice pridržane.
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab-btn");
+    const sections = document.querySelectorAll(".rules-section");
+    const checkbox = document.getElementById("agree");
+    const continueBtn = document.getElementById("continueBtn");
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const showRegister = document.getElementById("showRegister");
+    const showLogin = document.getElementById("showLogin");
+
+    // Zavihek preklop
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        sections.forEach(s => s.classList.remove("active"));
+
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.target).classList.add("active");
+
+        localStorage.setItem("selectedTab", tab.dataset.target);
+      });
+    });
+
+    // Aktivacija gumba
+    checkbox.addEventListener("change", () => {
+      continueBtn.disabled = !checkbox.checked;
+    });
+
+    // Pokaži prijavni obrazec ob klik na "Nadaljuj"
+    continueBtn.addEventListener("click", () => {
+      loginForm.classList.add("active");
+      continueBtn.style.display = "none";
+      checkbox.parentElement.style.display = "none";
+    });
+
+    // Prijava
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const usernameInput = loginForm.querySelector('input[type="text"]').value.trim();
+      const passwordInput = loginForm.querySelector('input[type="password"]').value;
+
+      const storedUser = localStorage.getItem("registeredUser");
+      const storedPass = localStorage.getItem("registeredPass");
+
+      if (!storedUser || !storedPass) {
+        alert("Noben uporabnik še ni registriran. Prosimo, registrirajte se.");
+        loginForm.reset();
+        loginForm.classList.remove("active");
+        checkbox.parentElement.style.display = "flex";
+        continueBtn.style.display = "block";
+        continueBtn.disabled = true;
+        return;
+      }
+
+      if (usernameInput === storedUser && passwordInput === storedPass) {
+        alert("Prijava uspešna! Dobrodošel na ROYALMC.");
+        // Lahko dodaš nadaljnjo logiko po uspešni prijavi tukaj
+      } else {
+        alert("Napačno uporabniško ime ali geslo.");
+      }
+    });
+
+    // Registracija
+    registerForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const inputs = registerForm.querySelectorAll("input");
+      const username = inputs[0].value.trim();
+      const email = inputs[1].value.trim();
+      const password1 = inputs[2].value;
+      const password2 = inputs[3].value;
+
+      if (password1 !== password2) {
+        alert("Gesli se ne ujemata!");
+        return;
+      }
+
+      if (username === "" || password1 === "") {
+        alert("Uporabniško ime in geslo ne smeta biti prazna.");
+        return;
+      }
+
+      if (password1.length < 6) {
+        alert("Geslo mora vsebovati vsaj 6 znakov.");
+        return;
+      }
+
+      // Preveri, če je uporabnik že registriran
+      if (localStorage.getItem("registeredUser")) {
+        alert("Uporabnik je že registriran. Prosimo, prijavite se.");
+        registerForm.reset();
+        registerForm.classList.remove("active");
+        loginForm.classList.add("active");
+        return;
+      }
+
+      // Shrani uporabniške podatke (demo, brez varnosti)
+      localStorage.setItem("registeredUser", username);
+      localStorage.setItem("registeredPass", password1);
+
+      alert("Registracija uspešna! Sedaj se lahko prijaviš.");
+      registerForm.reset();
+      registerForm.classList.remove("active");
+      loginForm.classList.add("active");
+    });
+
+    // Preklapljanje med prijavo in registracijo
+    showRegister.addEventListener("click", () => {
+      loginForm.classList.remove("active");
+      registerForm.classList.add("active");
+    });
+
+    showLogin.addEventListener("click", () => {
+      registerForm.classList.remove("active");
+      loginForm.classList.add("active");
+    });
+
+    // Ob ponovnem nalaganju
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTab = localStorage.getItem("selectedTab");
+      if (savedTab) {
+        tabs.forEach(t => t.classList.remove("active"));
+        sections.forEach(s => s.classList.remove("active"));
+        document.querySelector(`.tab-btn[data-target="${savedTab}"]`).classList.add("active");
+        document.getElementById(savedTab).classList.add("active");
+      }
+    });
+  </script>
+</body>
+</html>
