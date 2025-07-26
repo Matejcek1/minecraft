@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROYALMC - Pritožbe in pohvale</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    /* Osnovni izgled */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #111, #1c1c1c);
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #000;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+
+    header h1 {
+      color: #ffa500;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffa500;
+    }
+
+    .login-button {
+      margin-top: 10px;
+      background: #ffa500;
+      border: none;
+      color: #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-button:hover {
+      background: #ff8800;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255,165,0, 0.2);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container h2 {
+      color: #ffa500;
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+
+    .container p {
+      margin-bottom: 25px;
+      color: #ccc;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #2a2a2a;
+      color: white;
+      font-size: 16px;
+      outline: none;
+      transition: box-shadow 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      box-shadow: 0 0 10px #ffa500;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      background: #ffa500;
+      color: black;
+      font-weight: bold;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #ff8c00;
+      transform: scale(1.02);
+    }
+
+    .message {
+      margin-top: 15px;
+      font-size: 15px;
+      color: #90ee90;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 50px;
+    }
+
+    .icon-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      color: #ffa500;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ROYALMC</h1>
+    <nav>
+      <a href="index.html">Domov</a>
+      <a href="trgovina.html">Trgovina</a>
+      <a href="kazni.html">Kazni</a>
+      <a href="#">Ekipa</a>
+      <a href="#">Pomoč</a>
+    </nav>
+    <button class="login-button">Prijava</button>
+  </header>
+
+  <div class="container">
+    <h2><i class="fas fa-comment-dots"></i> Pritožbe in pohvale</h2>
+    <p>
+      Cenimo vsa vaša mnenja – naj gre za pozitivne izkušnje ali predloge za izboljšave.
+      Pošljite svoje sporočilo preko spodnjega obrazca in pomagajte soustvarjati našo skupnost!
+    </p>
+
+    <form id="feedbackForm">
+      <label class="icon-label"><i class="fas fa-user"></i> Vaše ime</label>
+      <input type="text" id="ime" name="ime" placeholder="Janez Novak" required />
+
+      <label class="icon-label"><i class="fas fa-envelope"></i> E-pošta</label>
+      <input type="email" id="email" name="email" placeholder="janez@email.com" required />
+
+      <label class="icon-label"><i class="fas fa-comment"></i> Vaše sporočilo</label>
+      <textarea id="sporocilo" name="sporocilo" placeholder="Zelo sem zadovoljen z ekipo!" required></textarea>
+
+      <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Pošlji</button>
+      <div class="message" id="formMessage"></div>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 ROYALMC - Vse pravice pridržane.
+  </footer>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const message = document.getElementById('formMessage');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const ime = document.getElementById('ime').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const sporocilo = document.getElementById('sporocilo').value.trim();
+
+      if (ime === "" || email === "" || sporocilo === "") {
+        message.style.display = 'block';
+        message.style.color = 'red';
+        message.textContent = "Prosim, izpolnite vsa polja.";
+        message.style.opacity = 1;
+        return;
+      }
+
+      // Prikaz uspeha
+      message.style.display = 'block';
+      message.style.color = '#90ee90';
+      message.textContent = `Hvala, ${ime}! Vaše sporočilo je bilo poslano.`;
+      message.style.opacity = 1;
+
+      // Počisti polja
+      form.reset();
+
+      // Skrij obvestilo po nekaj sekundah
+      setTimeout(() => {
+        message.style.opacity = 0;
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
